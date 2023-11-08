@@ -51,12 +51,12 @@ func Run(t *testing.T, stacks []awscdk.Stack) {
 			&assertions.TemplateParsingOptions{},
 		)
 		defer func() {
-			template.TemplateMatches(snapshotTemplate.ToJSON())
 			if err := recover(); err != nil {
 				if !strings.Contains(fmt.Sprint(err), "/Properties/Code/S3Key") {
 					t.Fatal(err)
 				}
 			}
 		}()
+		template.TemplateMatches(snapshotTemplate.ToJSON())
 	}
 }
