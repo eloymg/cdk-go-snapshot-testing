@@ -7,6 +7,8 @@ import (
 	"io"
 	"log"
 	"os"
+	"path"
+	"runtime"
 	"strings"
 	"testing"
 
@@ -16,6 +18,15 @@ import (
 )
 
 var refreshSnapshots = flag.Bool("refresh-snapshots", false, "For refresh snapshots add -refresh-snapshots flag")
+
+func Init() {
+	_, filename, _, _ := runtime.Caller(0)
+	dir := path.Join(path.Dir(filename), "../..")
+	err := os.Chdir(dir)
+	if err != nil {
+		panic(err)
+	}
+}
 
 func Run(t *testing.T, stacks []awscdk.Stack) {
 	t.Log("For refresh snapshots add -refresh-snapshots flag")
