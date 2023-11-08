@@ -17,7 +17,7 @@ import (
 
 var refreshSnapshots = flag.Bool("refresh-snapshots", false, "For refresh snapshots add -refresh-snapshots flag")
 
-func t(t *testing.T, stacks []awscdk.Stack) {
+func Run(t *testing.T, stacks []awscdk.Stack) {
 	t.Log("For refresh snapshots add -refresh-snapshots flag")
 	for _, stack := range stacks {
 		template := assertions.Template_FromStack(
