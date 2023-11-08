@@ -22,6 +22,7 @@ var refreshSnapshots = flag.Bool("refresh-snapshots", false, "For refresh snapsh
 func Init() {
 	_, filename, _, _ := runtime.Caller(1)
 	dir := path.Join(path.Dir(filename), "../..")
+	fmt.Println(dir)
 	err := os.Chdir(dir)
 	if err != nil {
 		panic(err)
