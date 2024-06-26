@@ -1,4 +1,4 @@
-module github.mpi-internal.com/lz/cdk-go-snapshot-testing
+module github.com/eloymg/cdk-go-snapshot-testing
 
 go 1.21.3
 
